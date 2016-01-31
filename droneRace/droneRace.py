@@ -77,8 +77,6 @@ def main():
 
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-        #out.write(frame)
-
         # Our operations on the frame come here
         #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -247,7 +245,6 @@ def main():
 
     # When everything done, release the capture
     cap.release()
-    out.release()
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
