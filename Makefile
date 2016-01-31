@@ -17,7 +17,7 @@ install-develop: clean uninstall
 	python setup.py develop
 
 install: clean uninstall all
-	pip install dist/$(PROJECT_NAME)-2.0.0-py2-none-any.whl
+	pip install $(shell ls dist/$(PROJECT_PATH)-*.whl)
 
 clean:
 	echo "Deleting all *.c *.cpp *.pyc *.so in ./$(PROJECT_PATH)/"
@@ -32,7 +32,7 @@ pylint:
 	pylint --disable=R0401,R0903,R0902,locally-disabled,abstract-class-little-used -f parseable $(PROJECT_PATH)/
 
 setenv:
-	virtualenv env
+	virtualenv env --system-site-packages
 	( . env/bin/activate; pip install -r requirements --upgrade )
 
 install-opencv:
